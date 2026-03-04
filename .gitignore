@@ -1,0 +1,12 @@
+.vscode/
+
+build/
+bin/
+out/
+
+*.o
+*.obj
+*.exe
+*.out
+
+*.bmp
