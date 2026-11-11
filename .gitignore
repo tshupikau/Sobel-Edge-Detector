@@ -10,3 +10,9 @@ out/
 *.out
 
 *.bmp
+
+.vs/
+out/
+build/
+imgui.ini
+*.ipch

@@ -1,5 +1,4 @@
-#ifndef BMP_STRUCTURES_H
-#define BMP_STRUCTURES_H
+#pragma once
 
 #include <cstdint>
 #include <iostream>
@@ -41,4 +40,15 @@ struct BMPColorHeader {
     uint32_t unused[16]{ 0 };
 };
 
-#endif
+class BMPIO
+{
+    BMPFileHeader header;
+    BMPInfoHeader infoHeader;
+    BMPColorHeader colorHeader;
+
+    void readBFH();
+    void readBIF();
+    void readBCH();
+    void readPixels();
+};
+
