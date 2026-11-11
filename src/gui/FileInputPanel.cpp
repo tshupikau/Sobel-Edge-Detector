@@ -4,7 +4,7 @@
 #include "Window.h"
 #include "App.h"
 
-#include "Image.h"
+#include "core/Image.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"

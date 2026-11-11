@@ -3,6 +3,8 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "formats/bmp/BMPFormat.h"
+#include "core/ToGray.h"
+#include "core/Sobel.h"
 
 ImGuiLayer::ImGuiLayer(GLFWwindow* window)
 	: window(window)
@@ -32,13 +34,12 @@ void ImGuiLayer::drawUI()
 		}
 		else
 		{
-			BmpFormat bmp;
-			Image src = bmp.read(fileInputPanel.getPath());
-			Image gray = ImageProcessing::BGRtoGray(src);
-			Image sobel = ImageProcessing::conv2d(gray);
+			Image src = BmpFormat{}.read(fileInputPanel.getPath());
+			Image gray = ToGray{}.apply(src);
+			Image edges = Sobel{}.apply(gray);
 
 			srcTex.load(src);
-			edgesTex.load(sobel);
+			edgesTex.load(edges);
 		}
 	}
 

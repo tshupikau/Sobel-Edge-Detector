@@ -11,7 +11,6 @@ class Image;
 
 namespace ImageProcessing
 {
-    Image BGRtoGray(const Image& img);
     Image conv2d(const Image& img);
 }
 

@@ -20,12 +20,12 @@ static int rowStride(int width, int bitsPerPixel)
     return ((width * bitsPerPixel + 31) / 32) * 4;
 }
 
-std::vector<Rgb> readPalette(std::istream& f, const BMPInfoHeader& info)
+std::vector<Rgb> readPalette(std::istream& f, const BMP::InfoHeader & info)
 {
     const int count = info.colors_used ? (int)info.colors_used : 256;
     std::vector<uint8_t> raw((size_t)count * 4);
 
-    f.seekg(sizeof(BMPFileHeader) + info.size);
+    f.seekg(sizeof(BMP::FileHeader) + info.size);
     f.read(reinterpret_cast<char*>(raw.data()), raw.size());
 
     std::vector<Rgb> palette(count);
@@ -59,7 +59,7 @@ static std::vector<uint8_t> readPixels(std::istream& f, int width, int height, i
             else
             {
                 const uint8_t* p = &row[x * step];
-                c = { p[2], p[1], p[0] };           
+                c = { p[0], p[1], p[2] };           
             }
             dst[x * 3 + 0] = c.r;
             dst[x * 3 + 1] = c.g;
@@ -83,8 +83,8 @@ Image BmpFormat::read(const std::string& path) const
     if (!file) throw std::runtime_error("Cannot open file: " + path);
     file.exceptions(std::ios::failbit | std::ios::badbit);
 
-    const auto fileHeader = readStruct<BMPFileHeader>(file);
-    const auto infoHeader = readStruct<BMPInfoHeader>(file);
+    const auto fileHeader = readStruct<BMP::FileHeader>(file);
+    const auto infoHeader = readStruct<BMP::InfoHeader>(file);
 
     file.seekg(fileHeader.bfOffBits);
 

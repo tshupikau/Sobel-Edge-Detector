@@ -1,6 +1,5 @@
 #pragma once
-#include "Image.h" 
-
+#include "core/Image.h"
 #include <GLFW/glfw3.h> 
 
 class Texture

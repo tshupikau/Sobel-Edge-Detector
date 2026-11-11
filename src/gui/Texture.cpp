@@ -1,5 +1,5 @@
 #include "Texture.h"
-#include "Image.h"
+#include "core/Image.h"
 #include <algorithm>
 #include <vector>
 

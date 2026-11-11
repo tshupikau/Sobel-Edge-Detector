@@ -3,7 +3,7 @@
 
 #include "App.h"
 
-int main(int argc, char* argv[])
+int main()
 {
 	App app;
 	return 0;

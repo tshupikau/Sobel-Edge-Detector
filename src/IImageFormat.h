@@ -1,5 +1,5 @@
 #pragma once
-#include "image.h"
+#include "core/Image.h"
 
 class IImageFormat
 {
