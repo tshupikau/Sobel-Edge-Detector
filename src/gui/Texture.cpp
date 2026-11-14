@@ -38,5 +38,5 @@ void Texture::load(const Image& img)
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, iw, ih, 0, GL_RGBA, GL_UNSIGNED_BYTE, rgba.data());
 
-    w = iw; h = ih; flip = img.isBottomUp();
+    w = iw; h = ih;
 }

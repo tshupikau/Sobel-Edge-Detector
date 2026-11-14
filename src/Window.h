@@ -8,6 +8,7 @@ private:
 	GLFWwindow* window { nullptr };
 public:
 	Window();
+	~Window();
 
 	void createWindow();
 

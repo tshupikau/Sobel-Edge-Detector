@@ -5,12 +5,6 @@
 #include <GLFW/glfw3.h>
 #include <algorithm>
 
-
-App::App()
-{
-	run();
-}
-
 void App::update()
 {
 	glfwPollEvents();
@@ -27,10 +21,4 @@ void App::run()
 	{
 		update();
 	}
-}
-
-App::~App()
-{
-	glfwDestroyWindow(window.getWindow());
-	glfwTerminate();
 }

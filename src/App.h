@@ -11,9 +11,6 @@ private:
 	Window window;
 	ImGuiLayer uiLayer{ window.getWindow() };
 public:
-	App();
-	~App();
-
 	void run();
 	void update();
 };
