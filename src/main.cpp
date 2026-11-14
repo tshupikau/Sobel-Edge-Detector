@@ -1,11 +1,12 @@
-#include <iostream>
 #include <fstream>
-#include <cmath>
-#include "../include/Image.h"
+#include <iostream>
 
-int main(int argc, char* argv[])
+#include "App.h"
+
+int main()
 {
-    Image img(argv[1]);
-    EdgeDetector::conv2d(img);
-    img.save(argv[2]);
+	App app;
+	app.run();
+
+	return 0;
 }
