@@ -24,9 +24,9 @@ void Texture::load(const Image& img)
         if (ch == 1) rgba[i * 4 + 0] = rgba[i * 4 + 1] = rgba[i * 4 + 2] = clamp(p[0]);
         else
         {
-            rgba[i * 4 + 0] = clamp(p[2]);
+            rgba[i * 4 + 0] = clamp(p[0]);
             rgba[i * 4 + 1] = clamp(p[1]);
-            rgba[i * 4 + 2] = clamp(p[0]);
+            rgba[i * 4 + 2] = clamp(p[2]);
         }
         rgba[i * 4 + 3] = 255;
     }

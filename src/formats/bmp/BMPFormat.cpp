@@ -59,7 +59,7 @@ static std::vector<uint8_t> readPixels(std::istream& f, int width, int height, i
             else
             {
                 const uint8_t* p = &row[x * step];
-                c = { p[0], p[1], p[2] };           
+                c = { p[2], p[1], p[0] };           
             }
             dst[x * 3 + 0] = c.r;
             dst[x * 3 + 1] = c.g;
@@ -97,7 +97,7 @@ Image BmpFormat::read(const std::string& path) const
     file.seekg(fileHeader.bfOffBits);
 
     Image img(width, height, 3);
-    img.setPixels(readPixels(file, width, height, bitCount, height < 0, palette));
+    img.setPixels(readPixels(file, width, height, bitCount, height > 0, palette));
     return img;
 }
 

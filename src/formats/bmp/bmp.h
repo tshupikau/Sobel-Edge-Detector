@@ -41,3 +41,4 @@ namespace BMP
         uint32_t unused[16]{ 0 };
     };
 }
+#pragma pack(pop)
